@@ -1,0 +1,14 @@
+{
+  "name": "form-validation-playground",
+  "version": "1.0.0",
+  "author": "kristen-foster-marks",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  },
+  "dependencies": {
+    "angular": "1.6.0"
+  }
+}
