@@ -1,1 +1,14 @@
 <h1>All the Snows We Knows</h1>
+
+<dl ng-repeat="snow in $ctrl.snowTypes">
+  <dt>{{snow.type}}</dt>
+  <dd>{{snow.description}}</dd>
+</dl>
+
+<form>
+  <h2>Add a Snow Type</h2>
+  <label>Type</label>
+  <input type="text">
+  <label>Description</label>
+  <input type="text">
+</form>
