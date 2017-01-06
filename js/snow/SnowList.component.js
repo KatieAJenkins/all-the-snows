@@ -22,6 +22,11 @@
         }
       ];
 
+      vm.addSnowType = function(){
+        console.log('adding snow type');
+        //write code to add snow type
+      };
+
     }
 
 }());

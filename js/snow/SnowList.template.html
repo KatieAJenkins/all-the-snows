@@ -5,10 +5,33 @@
   <dd>{{snow.description}}</dd>
 </dl>
 
-<form>
+<!--
+1. add novalidate
+2. add name
+3. add ng-submit (add function to controller)
+4. add button with type 'submit'
+5. to inputs add name, type, ng-minlength, ng-maxlength, ng-model
+ -->
+<form novalidate name="addSnowType" ng-submit="$ctrl.addSnowType()">
+
   <h2>Add a Snow Type</h2>
+
   <label>Type</label>
-  <input type="text">
+  <input
+    type="text"
+    name="type"
+    ng-minlength="2"
+    ng-maxlength="40"
+    ng-model="$ctrl.snow.type">
+
   <label>Description</label>
-  <input type="text">
+  <input
+    type="text"
+    name="description"
+    ng-minlength="15"
+    ng-maxlength="400"
+    ng-model="$ctrl.snow.description">
+
+  <button type="submit">Add</button>
+
 </form>
