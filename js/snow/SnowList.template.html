@@ -12,26 +12,33 @@
 4. add button with type 'submit'
 5. to inputs add name, type, ng-minlength, ng-maxlength, ng-model
  -->
-<form novalidate name="addSnowType" ng-submit="$ctrl.addSnowType()">
+
+<!-- 1. add tags for error message -->
+<form novalidate name="$ctrl.addSnowTypeForm" ng-submit="$ctrl.addSnowType()">
 
   <h2>Add a Snow Type</h2>
 
-  <label>Type</label>
+  <label ng-class="{'error': $ctrl.addSnowTypeForm.type.$invalid && $ctrl.addSnowTypeForm.type.$touched}">Type</label>
   <input
+    required
     type="text"
     name="type"
     ng-minlength="2"
     ng-maxlength="40"
     ng-model="$ctrl.snow.type">
+  <p ng-show="$ctrl.addSnowTypeForm.type.$invalid && $ctrl.addSnowTypeForm.type.$touched">input should be between 2 and 40 characters.</p>
 
-  <label>Description</label>
+
+  <label ng-class="{'error': $ctrl.addSnowTypeForm.description.$invalid && $ctrl.addSnowTypeForm.description.$touched}">Description</label>
   <input
+    required
     type="text"
     name="description"
     ng-minlength="15"
     ng-maxlength="400"
     ng-model="$ctrl.snow.description">
+  <p ng-show="$ctrl.addSnowTypeForm.description.$invalid && $ctrl.addSnowTypeForm.description.$touched">input should be between 15 and 400 characters.</p>
 
-  <button type="submit">Add</button>
+  <button type="submit" ng-disabled="$ctrl.addSnowTypeForm.$invalid">Add</button>
 
 </form>

@@ -10,7 +10,8 @@
     function controller(){
 
       const vm = this;
-
+      vm.addSnowType = addSnowType;
+      vm.resetForm = resetForm;
       vm.snowTypes = [
         {
           type:'hoarfrost',
@@ -22,10 +23,16 @@
         }
       ];
 
-      vm.addSnowType = function(){
+      function addSnowType(){
         vm.snowTypes.push(vm.snow);
         delete vm.snow;
-      };
+        vm.resetForm();
+      }
+
+      function resetForm(){
+        vm.addSnowTypeForm.$setPristine();
+        vm.addSnowTypeForm.$setUntouched();
+      }
 
     }
 
