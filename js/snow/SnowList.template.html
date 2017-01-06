@@ -9,21 +9,49 @@
 minlength-2
 maxlength-400
 
-Style form elements based on their validation state
-Display messages to the user -->
+Style form elements based on their validation state. Apply class.
+<!-- Display messages to the user -->
 
-<form ng-submit ="$ctrl.addSnowType()">
+<!--
+1. add novalidate
+2. add name
+3. add ng-submit (add function to controller)
+4. add button with type 'submit'
+5. to inputs add name, type, ng-minlength, ng-maxlength, ng-model
+ -->
+
+
+<form name = "$ctrl.addSnowForm" ng-submit ="$ctrl.addSnowType()">
   <h2>Add a Snow Type</h2>
 
-  <label>Type</label>
+  <label ng-class = "{'error': $ctrl.addSnowForm.type.$invalid &&  $ctrl.addSnowForm.type.$touched}">Type</label>
+
+<!-- to display values on UI-->
+  <!-- <p>pristine form: {{ addSnowForm.type.$pristine}}</p>
+  <p>pristine form: {{addSnowForm.$pristine}}</p>
+
+  <p>dirty: {{ addSnowForm.type.$dirty}}</p>
+  <p>touched: {{addSnowForm.type.$touched}}</p> -->
+
+
   <input
+  name = "type"
   type="text"
   ng-model = "$ctrl.snow.type"
   ng-minlength = "2"
   ng-maxlength="40">
 
-  <label>Description</label>
-  <input type="text" ng-model = "$ctrl.snow.description"  ng-minlength = "2" ng-maxlength="400">
+  <p ng-if = "$ctrl.addSnowForm.type.$invalid &&  ctrl$.addSnowForm.type.$touched">Length should be at least 2 characters</p>
+
+  <label ng-class = "{'error': $ctrl.addSnowForm.description.$invalid  &&  $ctrl.addSnowForm.type.$touched}">Description</label>
+
+  <input name = "description"
+   type="text"
+   ng-model = "$ctrl.snow.description"
+   ng-minlength = "2" 
+   ng-maxlength="400">
+
+  <p ng-if = "$ctrl.addSnowForm.type.$invalid &&  $ctrl.addSnowForm.type.$touched">Length should be at least 2 characters</p>
 
   <button type = "submit">Submit</button>
 </form>
