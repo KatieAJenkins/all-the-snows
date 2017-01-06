@@ -23,8 +23,8 @@
       ];
 
       vm.addSnowType = function(){
-        console.log('adding snow type');
-        //write code to add snow type
+        vm.snowTypes.push(vm.snow);
+        delete vm.snow;
       };
 
     }
