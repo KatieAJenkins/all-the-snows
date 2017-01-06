@@ -1,4 +1,4 @@
-#Form Validations with AngularJS * All of the Snows
+#Form Validations with AngularJS & All of the Snows
 
 ## Objectives
 
