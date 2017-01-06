@@ -22,6 +22,11 @@
         }
       ];
 
+      vm.addSnowType = function(){
+        vm.snowTypes.push(vm.snow);
+        delete vm.snow;
+      };
+
     }
 
 }());
